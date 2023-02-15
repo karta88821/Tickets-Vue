@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Index from '../views/Index.vue'
+import User from '../views/system/User.vue'
+import Role from '../views/system/Role.vue'
+import Menu from '../views/system/Menu.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +18,21 @@ const routes = [
         path: '/index',
         name: 'Index',
         component: Index
+      },
+      {
+        path: '/users',
+        name: 'SystemUser',
+        component: User
+      },
+      {
+        path: '/roles',
+        name: 'SystemRole',
+        component: Role
+      },
+      {
+        path: '/menus',
+        name: 'SystemMenu',
+        component: Menu
       }
     ]
   },
