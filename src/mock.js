@@ -22,7 +22,20 @@ Mock.mock('/capImg', 'get', () => {
 })
 
 Mock.mock('/login', 'post', () => {
-    Result.code = 401
-    Result.msg = "驗證碼錯誤"
+    //Result.code = 401
+    //Result.msg = "驗證碼錯誤"
+    return Result;
+})
+
+Mock.mock('/system/userInfo', 'get', () => {
+    Result.data = {
+        id: "1",
+        username: "test",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeeUl9IZDN97pBQNgeunx6dD1df-4g7vkPFw&usqp=CAU"
+    }
+    return Result;
+})
+
+Mock.mock('/logout', 'post', () => {
     return Result;
 })

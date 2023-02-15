@@ -5,6 +5,7 @@ import Index from '../views/Index.vue'
 import User from '../views/system/User.vue'
 import Role from '../views/system/Role.vue'
 import Menu from '../views/system/Menu.vue'
+import UserCenter from '../views/system/UserCenter.vue'
 
 Vue.use(VueRouter)
 
@@ -20,17 +21,22 @@ const routes = [
         component: Index
       },
       {
-        path: '/users',
+        path: '/system/userCenter',
+        name: 'UserCenter',
+        component: UserCenter
+      },
+      {
+        path: '/system/users',
         name: 'SystemUser',
         component: User
       },
       {
-        path: '/roles',
+        path: '/system/roles',
         name: 'SystemRole',
         component: Role
       },
       {
-        path: '/menus',
+        path: '/system/menus',
         name: 'SystemMenu',
         component: Menu
       }
