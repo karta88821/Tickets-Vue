@@ -39,3 +39,47 @@ Mock.mock('/system/userInfo', 'get', () => {
 Mock.mock('/logout', 'post', () => {
     return Result;
 })
+
+Mock.mock("/system/menu/nav", 'get', () => {
+    let nav = [
+        {
+            title: "系統管理",
+            name: "SysManager",
+            icon: "el-icon-s-operation",
+            component: '',
+            path: "",
+            children: [
+                {
+                    title: "用戶管理",
+                    name: "SysUsers",
+                    icon: "el-icon-user-solid",
+                    component: 'system/User',
+                    path: "/system/users",
+                },
+                {
+                    title: "角色管理",
+                    name: "SysRoles",
+                    icon: "el-icon-rank",
+                    component: 'system/Role',
+                    path: "/system/roles",
+                },
+                {
+                    title: "菜單管理",
+                    name: "SysMenus",
+                    icon: "el-icon-menu",
+                    component: 'system/Menu',
+                    path: "/system/menus",
+                },
+            ],
+        }
+    ]
+
+    let permissions = []
+
+    Result.data = {
+        nav: nav,
+        permissions: permissions
+    }
+
+    return Result
+})

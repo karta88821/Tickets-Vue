@@ -10,9 +10,8 @@
                     <el-avatar size="medium" :src="userInfo.avatar"></el-avatar>
                     <el-dropdown>
                         <span class="el-dropdown-link">
-                            {{userInfo.username}}<i
-                                class="el-icon-arrow-down el-icon--right"
-                            ></i>
+                            {{ userInfo.username
+                            }}<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item>
@@ -20,7 +19,9 @@
                                     個人中心
                                 </router-link>
                             </el-dropdown-item>
-                            <el-dropdown-item @click.native="logout">登出</el-dropdown-item>
+                            <el-dropdown-item @click.native="logout"
+                                >登出</el-dropdown-item
+                            >
                         </el-dropdown-menu>
                     </el-dropdown>
                     <el-link href="" target="_blank">網站</el-link>
@@ -28,6 +29,7 @@
             </el-header>
             <el-main>
                 <!-- 嵌入 child router 的內容 -->
+                <Tabs></Tabs>
                 <router-view></router-view>
             </el-main>
         </el-container>
@@ -36,12 +38,14 @@
 
 <script>
 import SideMenu from "./include/SideMenu.vue";
+import Tabs from "./include/Tabs.vue";
 
 export default {
     // 把 Home 當成 parent router
     name: "Home",
     components: {
         SideMenu,
+        Tabs,
     },
     data() {
         return {
@@ -62,15 +66,15 @@ export default {
             });
         },
         logout() {
-            this.$axios.post("/logout").then(res => {
-                localStorage.clear()
-                sessionStorage.clear()
+            this.$axios.post("/logout").then((res) => {
+                localStorage.clear();
+                sessionStorage.clear();
 
-                this.$store.commit("resetState")
+                this.$store.commit("resetState");
 
-                this.$router.push("/login")
-            })
-        }
+                this.$router.push("/login");
+            });
+        },
     },
 };
 </script>
@@ -103,7 +107,7 @@ export default {
 
 .el-main {
     color: #333;
-    text-align: center;
+    padding: 0;
     /* line-height: 160px; */
 }
 

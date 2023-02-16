@@ -1,13 +1,13 @@
 <template>
     <el-menu
-        default-active="2"
+        :default-active="this.$store.state.menus.editableTabsValue"
         class="el-menu-vertical-demo"
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b"
     >
         <router-link to="/index">
-            <el-menu-item index="0">
+            <el-menu-item index="Index" @click="selectMenu({name: 'Index', title: '首頁'})">
                 <template slot="title">
                     <i class="el-icon-s-home"></i>
                     <span>首頁</span>
@@ -15,35 +15,17 @@
             </el-menu-item>
         </router-link>
 
-        <el-submenu index="1">
+        <el-submenu :index="menu.name" v-for="menu in menuList">
             <template slot="title">
-                <i class="el-icon-s-operation"></i>
-                <span>系統管理</span>
+                <i :class="menu.icon"></i>
+                <span>{{ menu.title }}</span>
             </template>
 
-            <router-link to="/users">
-                <el-menu-item index="1-1">
+            <router-link :to="item.path" v-for="item in menu.children">
+                <el-menu-item :index="item.name" @click="selectMenu(item)">
                     <template slot="title">
-                        <i class="el-icon-user-solid"></i>
-                        <span>用戶管理</span>
-                    </template>
-                </el-menu-item>
-            </router-link>
-
-            <router-link to="/roles">
-                <el-menu-item index="1-2">
-                    <template slot="title">
-                        <i class="el-icon-rank"></i>
-                        <span>角色管理</span>
-                    </template>
-                </el-menu-item>
-            </router-link>
-
-            <router-link to="/menus">
-                <el-menu-item index="1-3">
-                    <template slot="title">
-                        <i class="el-icon-menu"></i>
-                        <span>菜單管理</span>
+                        <i :class="item.icon"></i>
+                        <span slot="title">{{ item.title }}</span>
                     </template>
                 </el-menu-item>
             </router-link>
@@ -54,6 +36,23 @@
 <script>
 export default {
     name: "SideMenu",
+    data() {
+        return {
+            
+        };
+    },
+    computed: {
+        menuList: {
+            get() {
+                return this.$store.state.menus.menuList
+            }
+        }
+    },
+    methods: {
+        selectMenu(item) {
+            this.$store.commit("addTab", item)
+        }
+    }
 };
 </script>
 
