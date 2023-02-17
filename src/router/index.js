@@ -2,9 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Index from '../views/Index.vue'
-import User from '../views/system/User.vue'
-import Role from '../views/system/Role.vue'
-import Menu from '../views/system/Menu.vue'
 import UserCenter from '../views/system/UserCenter.vue'
 
 import axios from "axios"
@@ -65,7 +62,7 @@ router.beforeEach((to, from, next) => {
       // 取得用戶權限
       store.commit("setPermissionList", res.data.data.permissions)
 
-      // 動態綁定router
+      // 動態綁定route
       let newRoutes = router.options.routes
 
       res.data.data.nav.forEach((menu) => {

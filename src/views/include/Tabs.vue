@@ -38,14 +38,6 @@ export default {
         }
     },
     methods: {
-        addTab(targetName) {
-            let newTabName = "";
-            this.editableTabs.push({
-                title: "New Tab",
-                name: newTabName
-            });
-            this.editableTabsValue = newTabName;
-        },
         removeTab(targetName) {
             let tabs = this.editableTabs;
             let activeName = this.editableTabsValue;

@@ -43,10 +43,10 @@
         data() {
             return {
                 loginForm: {
-                username: '',
-                password: '',
-                code: '',
-                token: ''
+                    username: '',
+                    password: '',
+                    code: '',
+                    token: ''
                 },
                 rules: {
                     username: [

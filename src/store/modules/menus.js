@@ -8,7 +8,7 @@ export default {
     state: {
         menuList: [],
         permissionList: [],
-        hasRoute: false, // 不用一直更新route
+        hasRoute: false, 
         editableTabsValue: "Index",
         editableTabs: [
             {
@@ -28,12 +28,13 @@ export default {
         },
         changeRouteStatus(state, hasRoute) {
             state.hasRoute = hasRoute
-            sessionStorage.setItem("hasRoute", hasRoute)
+            sessionStorage.setItem("hasRoute", hasRoute) // 將hasRoute存在session中，重新整理瀏覽器後，左側menu不會被刷新
         },
         addTab(state, tab) {
-
+            // 加入tab前，先看看是否已經存在
             let index = state.editableTabs.findIndex(e => e.name === tab.name)
 
+            // tab不存在，加入
             if (index == -1) {
                 state.editableTabs.push({
                     title: tab.title,
@@ -41,6 +42,7 @@ export default {
                 });
             }
 
+            // 改變當前成的tab
             state.editableTabsValue = tab.name;
         },
         resetState: (state) => {

@@ -7,6 +7,7 @@
         active-text-color="#ffd04b"
     >
         <router-link to="/index">
+            <!-- @click = v-on:click    it's used for listening to events  -->
             <el-menu-item index="Index" @click="selectMenu({name: 'Index', title: '首頁'})">
                 <template slot="title">
                     <i class="el-icon-s-home"></i>
@@ -49,6 +50,7 @@ export default {
         }
     },
     methods: {
+        // 選擇menu時，新增對應的tab
         selectMenu(item) {
             this.$store.commit("addTab", item)
         }
