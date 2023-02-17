@@ -30,7 +30,9 @@
             <el-main>
                 <!-- 嵌入 child router 的內容 -->
                 <Tabs></Tabs>
-                <router-view></router-view>
+                <div style="margin: 0 15px">
+                    <router-view></router-view>
+                </div>
             </el-main>
         </el-container>
     </el-container>
