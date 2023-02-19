@@ -23,8 +23,8 @@ export default {
         setMenuList(state, menus) {
             state.menuList = menus
         },
-        setPermissionList(state, perms) {
-            state.permissionList = perms
+        setPermissionList(state, permissions) {
+            state.permissionList = permissions
         },
         changeRouteStatus(state, hasRoute) {
             state.hasRoute = hasRoute
